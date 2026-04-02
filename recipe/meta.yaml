@@ -1,13 +1,15 @@
 {% set name = "ltd-conveyor" %}
-{% set version = "0.7.1" %}
+{% set version = "0.8.4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ebbc5fd9b86e627366e9c25fe9e8b9c16df4e38c702ee73cb93a9a324bd3ed35
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ltd_conveyor-{{ version }}.tar.gz
+  sha256: c98f9d447337a6f990c34e4a75d7dab6706aad59a586f6f20a43a6032dd38d29
+  patches:
+    - 0001-Patch-package_name-to-version_option-call.patch
 
 build:
   noarch: python
@@ -24,11 +26,13 @@ requirements:
     - setuptools_scm
   run:
     - python >=3.7
+    - setuptools
     - setuptools_scm
     - boto3
     - requests
     - uritemplate
     - click
+    - importlib-metadata
 
 test:
   commands:
