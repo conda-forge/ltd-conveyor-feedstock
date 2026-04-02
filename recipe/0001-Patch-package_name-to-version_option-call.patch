@@ -1,0 +1,25 @@
+From 723dcb6600fcb3e076fc995002dda24ede32832f Mon Sep 17 00:00:00 2001
+From: Eric Coughlin <ecoughlin@lsst.org>
+Date: Thu, 2 Apr 2026 07:55:37 -0300
+Subject: [PATCH] Patch package_name to version_option call.
+
+---
+ src/ltdconveyor/cli/main.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/ltdconveyor/cli/main.py b/src/ltdconveyor/cli/main.py
+index b01b679..a93a9d8 100644
+--- a/src/ltdconveyor/cli/main.py
++++ b/src/ltdconveyor/cli/main.py
+@@ -43,7 +43,7 @@ CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
+     envvar="LTD_PASSWORD",
+     help="Password for LTD Keeper (or `$LTD_PASSWORD`).",
+ )
+-@click.version_option()
++@click.version_option(package_name="ltd-conveyor")
+ @click.pass_context
+ def main(
+     ctx: click.Context,
+-- 
+2.52.0
+
